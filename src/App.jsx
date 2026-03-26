@@ -28,7 +28,7 @@ function App() {
           placeholder="Cerca un film" />
         <button onClick={searchMovies}>Cerca</button>
         <ul>
-          {movies.map(movie => (
+          {movies.slice(0, 5).map(movie => (
             <li key={movie.id}>
               <h3>{movie.title}</h3>
               <p>{movie.original_title}</p>
