@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 library.add(faStar, farStar)
 
@@ -68,13 +69,28 @@ function App() {
   }
 
   return (
-    <div>
-      {/* input + bottone */}
-      <input
-        value={query}
-        onChange={e => setQuery(e.target.value)}
-        placeholder="Cerca film o serie TV" />
-      <button onClick={searchMovies}>Cerca</button>
+    <div className="container-fluid py-4 bg-dark min-vh-100">
+      {/* Header */}
+      <header className="row mb-5 pb-4 border-bottom border-danger border-3">
+        <div className="col-md-3">
+          <h1 className="display-4 fw-bold text-danger mb-0">
+            <i className="bi bi-play-circle-fill me-3"></i>
+            BoolFlix
+          </h1>
+        </div>
+        <div className="col-md-6">
+          <div className="input-group input-group-lg">
+            <input
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              placeholder="Cerca film o serie TV"
+              className="form-control bg-dark text-white border-danger" />
+            <button onClick={searchMovies} className="btn btn-danger btn-lg">
+              <i className="bi bi-search"></i> Cerca
+            </button>
+          </div>
+        </div>
+      </header>
 
       {/* sezione film */}
       <h3>Film</h3>
